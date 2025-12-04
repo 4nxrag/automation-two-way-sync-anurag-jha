@@ -38,34 +38,35 @@ I chose Airtable and Trello because:
 
 ### High-Level Flow
 
-┌─────────────────┐ ┌─────────────────┐
-│ AIRTABLE │ │ TRELLO │
-│ (Lead Tracker) │ │ (Work Tracker) │
-│ │ │ │
-│ ┌───────────┐ │ │ ┌──────────┐ │
-│ │ John Doe │ │ │ │ TODO │ │
-│ │ Status: │ │◄───────────────────┤ │ │ │
-│ │ QUALIFIED │ │ Sync Status │ │ ┌──────┐ │ │
-│ │ │ │ │ │ │ Jane │ │ │
-│ └───────────┘ │ │ │ └──────┘ │ │
-│ │ │ │ │ │
-│ │ Create/Update │ │ DONE │ │
-│ │◄───────────────────┤ │ │ │
-│ │ │ │ ┌──────┐ │ │
-│ │ Mark Complete │ │ │ John │ │ │
-│ ├───────────────────►│ │ └──────┘ │ │
-│ │ │ └──────────┘ │
-└─────────────────┘ └─────────────────┘
-▲ ▲
-│ │
-└──────────────┐ ┐───────────────┘
-│ │
-┌─────▼──────▼─────┐
-│ Python Sync │
-│ Service │
-│ (Polling Loop) │
-└──────────────────┘
-
+```
+┌─────────────────┐                    ┌─────────────────┐
+│   AIRTABLE      │                    │     TRELLO      │
+│  (Lead Tracker) │                    │ (Work Tracker)  │
+│                 │                    │                 │
+│  ┌───────────┐  │                    │  ┌──────────┐   │
+│  │ John Doe  │  │                    │  │  TODO    │   │
+│  │ Status:   │  │◄───────────────────┤  │          │   │
+│  │ QUALIFIED │  │    Sync Status     │  │ ┌──────┐ │   │
+│  │           │  │                    │  │ │ Jane │ │   │
+│  └───────────┘  │                    │  │ └──────┘ │   │
+│                 │                    │  │          │   │
+│                 │    Create/Update   │  │  DONE    │   │
+│                 │◄───────────────────┤  │          │   │ 
+│                 │                    │  │ ┌──────┐ │   │
+│                 │    Mark Complete   │  │ │ John │ │   │
+│                 ├───────────────────►│  │ └──────┘ │   │
+│                 │                    │  └──────────┘   │
+└─────────────────┘                    └─────────────────┘
+         ▲                                      ▲
+         │                                      │
+         └──────────────┐      ┌───────────────┘
+                        │      │
+                  ┌─────▼──────▼─────┐
+                  │  Python Sync     │
+                  │  Service         │
+                  │  (Polling Loop)  │
+                  └──────────────────┘
+```
 
 ### Sync Direction Logic
 
@@ -110,23 +111,30 @@ I considered mapping TODO list movements back to Airtable, but decided against i
 
 ## Project Structure
 
-automation-two-way-sync-anurag-jha/
-├── clients/
-│ ├── airtable_client.py # Airtable API wrapper
-│ └── trello_client.py # Trello API wrapper + metadata parsing
-├── services/
-│ └── sync_service.py # Core sync logic
-├── config.py # Environment config & validation
-├── main.py # Entry point + CLI
-├── test_trello_auth.py # Auth testing utility
-├── debug_airtable.py # Field debugging utility
-├── requirements.txt # Python dependencies
-├── .env.example # Environment template
-├── .env  
-├── .gitignore # Git ignore rules
-└── README.md # This file
+## Project Structure
 
----
+```
+automation-two-way-sync-anurag-jha/
+│
+├── clients/
+│   ├── airtable_client.py      # Airtable API wrapper
+│   └── trello_client.py         # Trello API wrapper + metadata parsing
+│
+├── services/
+│   └── sync_service.py          # Core sync logic
+│
+├── config.py                    # Environment config & validation
+├── main.py                      # Entry point + CLI
+├── test_trello_auth.py          # Auth testing utility
+├── debug_airtable.py            # Field debugging utility
+│
+├── requirements.txt             # Python dependencies
+├── .env.example                 # Environment template
+├── .env                         # Your credentials (DO NOT COMMIT)
+├── .gitignore                   # Git ignore rules
+│
+└── README.md                    # This file
+```
 
 ## Setup Instructions
 
