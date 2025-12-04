@@ -1,0 +1,16 @@
+# --- 1. Security ---
+.env
+
+# --- 2. Python System Files ---
+__pycache__/
+*.pyc
+*.pyo
+
+# --- 3. Virtual Environments ---
+venv/
+.venv/
+env/
+
+# --- 4. OS & Editor Junk ---
+Thumbs.db       # Windows
+.vscode/        
