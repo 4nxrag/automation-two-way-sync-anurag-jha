@@ -90,3 +90,5 @@ class AirtableClient:
         except requests.exceptions.RequestException as e:
             print(f"✗ Error updating Airtable record {record_id}: {e}")
             return None
+
+
