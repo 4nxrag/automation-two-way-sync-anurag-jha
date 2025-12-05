@@ -45,10 +45,6 @@ class TrelloClient:
         """
         Parse the Airtable ID from card description using regex.
         
-        Regex Pattern Explanation:
-        AIRTABLE_ID:\s*     -> Match "AIRTABLE_ID:" followed by optional whitespace
-        (rec[A-Za-z0-9]+)   -> Capture group: "rec" + alphanumeric characters
-        
         """
         if not description:
             return None
