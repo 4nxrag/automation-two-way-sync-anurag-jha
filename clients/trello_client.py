@@ -49,18 +49,13 @@ class TrelloClient:
         AIRTABLE_ID:\s*     -> Match "AIRTABLE_ID:" followed by optional whitespace
         (rec[A-Za-z0-9]+)   -> Capture group: "rec" + alphanumeric characters
         
-        In JS: const match = description.match(r/AIRTABLE_ID:\s*(rec[A-Za-z0-9]+)/)
-        Returns: Airtable ID string or None
         """
         if not description:
             return None
         
-        # Compile regex pattern for better performance in loops
         pattern = r'AIRTABLE_ID:\s*(rec[A-Za-z0-9]+)'
         match = re.search(pattern, description)
-        
-        # In Python: match.group(1) gets first captured group
-        # In JS: match[1] would get the same
+ 
         return match.group(1) if match else None
     
     def create_card(self, name, description, list_id):
@@ -72,12 +67,11 @@ class TrelloClient:
             description: Card description (will contain metadata footer)
             list_id: Which list to create the card in
         
-        In JS: await fetch('/cards', { method: 'POST', body: ... })
         """
         url = f"{self.base_url}/cards"
         
         # Merge auth params with card data
-        # In Python: {**dict1, **dict2} is like {...obj1, ...obj2} in JS
+
         params = {
             **self.auth_params,
             "name": name,
