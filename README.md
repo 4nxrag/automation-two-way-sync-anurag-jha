@@ -111,8 +111,6 @@ I considered mapping TODO list movements back to Airtable, but decided against i
 
 ## Project Structure
 
-## Project Structure
-
 ```
 automation-two-way-sync-anurag-jha/
 │
@@ -303,6 +301,17 @@ python main.py
 ---
 
 ## Technical Decisions
+
+### Code Documentation Philosophy
+
+You'll notice the code has more comments than typical production code. This is a deliberate choice for this assignment to demonstrate:
+
+1. **Clear thinking** - Comments show I understand *why* each piece exists, not just *what* it does
+2. **Team collaboration** - In startups, PMs, sales ops, and founders often read automation code
+3. **Maintainability** - If I get hit by a bus tomorrow, someone else can pick this up
+4. **Learning resource** - Since this is an interview assignment, I wanted to show my thought process
+
+In a production setting with an experienced team, I'd reduce comment density but keep the architectural explanations.
 
 ### Why Polling Instead of Webhooks?
 
