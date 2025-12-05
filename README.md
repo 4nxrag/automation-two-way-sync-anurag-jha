@@ -10,7 +10,7 @@ A Python-based automation system that keeps lead data synchronized between Airta
 
 ## 📹 Demo Video
 
-**Watch the full walkthrough:** [Google Drive Link](YOUR_VIDEO_LINK_HERE)
+**Watch the full walkthrough:** [Google Drive Link](https://drive.google.com/file/d/1xK9sHboKzRaNCDxhvy_rRSO8BdpMXyRX/view?usp=sharing)
 
 *(10-minute video covering architecture, code walkthrough, setup, and live demo)*
 

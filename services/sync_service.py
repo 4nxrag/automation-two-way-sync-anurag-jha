@@ -175,7 +175,7 @@ class SyncService:
                     current_list_id = existing_card.get('idList')
                     current_name = existing_card.get('name', '')
                     
-                    # 🔥 KEY FIX: Don't touch cards that are in DONE list
+                    # KEY FIX: Don't touch cards that are in DONE list
                     # User manually moved them there - respect that decision
                     if current_list_id == Config.TRELLO_LIST_DONE_ID:
                         print(f"  🔒 Skipping (in DONE list): {lead_name}")
