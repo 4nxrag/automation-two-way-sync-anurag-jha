@@ -3,8 +3,6 @@
 A Python-based automation system that keeps lead data synchronized between Airtable (Lead Tracker) and Trello (Work Tracker) in real-time.
 
 **Author:** Anurag Jha  
-**Role:** Software Engineer Intern - Automation & Integrations (Take-home Assignment)  
-**Date:** December 2025
 
 ---
 

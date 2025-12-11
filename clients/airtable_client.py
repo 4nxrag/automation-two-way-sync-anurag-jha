@@ -2,10 +2,7 @@ import requests
 from config import Config
 
 class AirtableClient:
-    """
-    Wrapper for Airtable API operations.
-    In JS/TS, this is like a class with async methods for API calls.
-    """
+   
     
     def __init__(self):
         self.base_url = f"https://api.airtable.com/v0/{Config.AIRTABLE_BASE_ID}/{Config.AIRTABLE_TABLE_NAME}"
@@ -17,10 +14,6 @@ class AirtableClient:
     def get_all_records(self):
         """
         Fetch all records from Airtable with pagination handling.
-        Returns: List of all records (Python list = JS array)
-        
-        Note: Airtable paginates at 100 records per request.
-        In JS this would be like: const records = await fetchAllPages()
         """
         all_records = []
         offset = None
@@ -38,12 +31,12 @@ class AirtableClient:
                 )
                 
                 # Raise exception for 4xx/5xx status codes
-                # Similar to: if (!response.ok) throw new Error()
+                
                 response.raise_for_status()
                 
                 data = response.json()
                 records = data.get('records', [])
-                all_records.extend(records)  # Like: allRecords.push(...records) in JS
+                all_records.extend(records)  
                 
                 # Check if there are more pages
                 offset = data.get('offset')
@@ -63,8 +56,6 @@ class AirtableClient:
         Args:
             record_id: The Airtable record ID (like rec123abc)
             status: New status value (e.g., "QUALIFIED")
-        
-        In JS: await fetch(url, { method: 'PATCH', body: JSON.stringify(data) })
         """
         url = f"{self.base_url}/{record_id}"
         

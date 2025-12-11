@@ -19,9 +19,6 @@ class TrelloClient:
     def get_all_cards_on_board(self):
         """
         Fetch all cards from the Trello board.
-        Returns: List of card objects (Python list = JS array)
-        
-        In JS: const cards = await fetch(`/boards/${boardId}/cards`).then(r => r.json())
         """
         url = f"{self.base_url}/boards/{Config.TRELLO_BOARD_ID}/cards"
         
@@ -94,15 +91,12 @@ class TrelloClient:
     def update_card(self, card_id, name=None, description=None, list_id=None):
         """
         Update an existing Trello card.
-        
         Args are optional - only updates fields that are provided.
-        In JS: await fetch(`/cards/${id}`, { method: 'PUT', body: ... })
         """
         url = f"{self.base_url}/cards/{card_id}"
         
         # Build params dict with only provided fields
         # In Python: dict comprehension filters out None values
-        # In JS: Object.entries(obj).filter(([k,v]) => v !== null)
         params = {**self.auth_params}
         
         if name is not None:
@@ -136,8 +130,6 @@ class TrelloClient:
         
         ---METADATA---
         AIRTABLE_ID: rec123abc
-        
-        In JS: return `${content}\n\n${METADATA_MARKER}\n${ID_PREFIX} ${id}`
         """
         metadata_footer = f"\n\n{Config.METADATA_MARKER}\n{Config.AIRTABLE_ID_PREFIX} {airtable_id}"
         return content + metadata_footer

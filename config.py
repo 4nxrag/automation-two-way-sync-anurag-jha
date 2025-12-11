@@ -31,10 +31,6 @@ class Config:
     
     @classmethod
     def validate(cls):
-        """
-        Validates that all required environment variables are set.
-        Similar to checking if(config.apiKey) in JS before starting app.
-        """
         required_vars = {
             'AIRTABLE_API_KEY': cls.AIRTABLE_API_KEY,
             'AIRTABLE_BASE_ID': cls.AIRTABLE_BASE_ID,
