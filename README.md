@@ -126,7 +126,7 @@ automation-two-way-sync-anurag-jha/
 │
 ├── requirements.txt             # Python dependencies
 ├── .env.example                 # Environment template
-├── .env                         # Your credentials (DO NOT COMMIT)
+├── .env                         # credentials
 ├── .gitignore                   # Git ignore rules
 │
 └── README.md                    # This file
